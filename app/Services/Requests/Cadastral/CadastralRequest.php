@@ -6,20 +6,17 @@ use App\Services\Requests\BaseRequest;
 
 class CadastralRequest extends BaseRequest
 {
-    protected string $url;
+    private array $plotIds = ['69:27:0000022:1306', '69:27:0000022:1307'];
 
-    protected array $options;
+    const BID_LAND_URL = 'https://api.pkk.bigland.ru/test/plots';
 
     public function __construct()
     {
-        $this->url = 'https://api.pkk.bigland.ru/test/plots';
-        $this->options = [
+        $this->setUrl(self::BID_LAND_URL);
+        $this->setOptions([
             'collection' => [
-                'plots' => [
-                    "69:27:0000022:1306",
-                    "69:27:0000022:1307"
-                ]
+                'plots' => $this->plotIds
             ]
-        ];
+        ]);
     }
 }

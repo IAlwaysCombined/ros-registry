@@ -3,18 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CadastralResource;
-use App\Services\Cadastral\Interfaces\CadastralInterface;
+use App\Http\Resources\PlotResource;
+use App\Services\Plot\Interfaces\PlotInterface;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-class CadastralController extends Controller
+class PlotController extends Controller
 {
-    private CadastralInterface $cadastral;
+    private PlotInterface $cadastral;
 
     /**
-     * @param CadastralInterface $cadastral
+     * @param PlotInterface $cadastral
      */
-    public function __construct(CadastralInterface $cadastral)
+    public function __construct(PlotInterface $cadastral)
     {
         $this->cadastral = $cadastral;
     }
@@ -24,7 +24,7 @@ class CadastralController extends Controller
      */
     public function __invoke(): AnonymousResourceCollection
     {
-        return CadastralResource::collection(
+        return PlotResource::collection(
             $this->cadastral->index()
         );
     }

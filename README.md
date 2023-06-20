@@ -22,7 +22,7 @@ http://localhost/cadastral
 
 ## Запрос на получение через консоль
 ```
-sail exec -it laravel.test php artisan app:cadastral-controller
+sail exec -it laravel.test php artisan app:plot-controller
 ```
 
 ## Поднимаем докер
@@ -35,4 +35,7 @@ sail up -d
 sail down
 ```
 
-
+## Добавление алиаса к sail
+```
+alias sail='bash vendor/bin/sail'
+```

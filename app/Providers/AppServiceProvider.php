@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use App\Services\Cadastral\CadastralService;
-use App\Services\Cadastral\Interfaces\CadastralInterface;
+use App\Services\Plot\PlotService;
+use App\Services\Plot\Interfaces\PlotInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->bind(CadastralInterface::class, CadastralService::class);
+        $this->app->bind(PlotInterface::class, PlotService::class);
     }
 
     /**

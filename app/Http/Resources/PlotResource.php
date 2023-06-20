@@ -11,7 +11,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
  * @property float $price
  * @property float $area
  */
-class CadastralResource extends JsonResource
+class PlotResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

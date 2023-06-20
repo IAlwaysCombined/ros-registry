@@ -29,15 +29,15 @@ readonly class PlotDto
     }
 
     /**
-     * @param object $result
+     * @param array $result
      * @return PlotDto
      */
-    public static function fromResponse(object $result): PlotDto{
+    public static function fromResponse(array $result): PlotDto{
         return new self(
-            number: $result->number,
-            address: $result->attrs->plot_address,
-            price: $result->attrs->plot_price,
-            area: $result->attrs->plot_area,
+            number: $result['number'],
+            address: $result['attrs']['plot_address'],
+            price: $result['attrs']['plot_price'],
+            area: $result['attrs']['plot_area'],
         );
     }
 }
