@@ -19,11 +19,12 @@ class PlotController extends Controller
         $this->cadastral = $cadastral;
     }
 
-    public function __invoke(Request $request): View|\Illuminate\Foundation\Application|Factory|Application
+    public function __invoke(Request $request)
     {
-        /** @var Plot $results */
-        $results = $this->cadastral->view($request->input('cadastral_number'));
+        $cadastralNumber = $request->input('cadastral_number');
 
-        return view('cadastral');
+        $plots = $this->cadastral->view([$cadastralNumber]);
+
+        return view('show', ['plots' => $plots]);
     }
 }

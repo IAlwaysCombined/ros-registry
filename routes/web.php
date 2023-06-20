@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cadastral', PlotController::class);
+Route::post('/plots', PlotController::class)->name('show-data');
