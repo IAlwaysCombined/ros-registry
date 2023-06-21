@@ -17,12 +17,12 @@ http://localhost/api/list
 
 ## Запрос на получение через WEB
 ```
-http://localhost/cadastral
+http://localhost/plots
 ```
 
 ## Запрос на получение через консоль
 ```
-sail exec -it laravel.test php artisan app:plot-controller
+sail exec -it laravel.test php artisan app:plot-controller 69:27:0000022:1306 69:27:0000022:1307
 ```
 
 ## Поднимаем докер
@@ -39,3 +39,10 @@ sail down
 ```
 alias sail='bash vendor/bin/sail'
 ```
+
+Результат работы:
+![Web](photo_results/web.png) 
+
+![Api](photo_results/api.png) 
+
+![Console](photo_results/console.png) 

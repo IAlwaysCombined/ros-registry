@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/plots', PlotController::class)->name('show-data');
+Route::get('/plots', PlotController::class)->name('show-data');

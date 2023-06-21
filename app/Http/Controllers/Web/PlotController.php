@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use App\Models\Plot;
 use App\Services\Plot\Interfaces\PlotInterface;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
@@ -12,19 +11,24 @@ use Illuminate\Http\Request;
 
 class PlotController extends Controller
 {
-    private PlotInterface $cadastral;
+    private PlotInterface $plotService;
 
-    public function __construct(PlotInterface $cadastral)
+    /**
+     * @param PlotInterface $plotService
+     */
+    public function __construct(PlotInterface $plotService)
     {
-        $this->cadastral = $cadastral;
+        $this->plotService = $plotService;
     }
 
-    public function __invoke(Request $request)
+    /**
+     * @param Request $request
+     * @return View|\Illuminate\Foundation\Application|Factory|Application
+     */
+    public function __invoke(Request $request): View|\Illuminate\Foundation\Application|Factory|Application
     {
         $cadastralNumber = $request->input('cadastral_number');
-
-        $plots = $this->cadastral->view([$cadastralNumber]);
-
+        $plots = $this->plotService->view(explode(',', str_replace(' ', '',$cadastralNumber)));
         return view('show', ['plots' => $plots]);
     }
 }
